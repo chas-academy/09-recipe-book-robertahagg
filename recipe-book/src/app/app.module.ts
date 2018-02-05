@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RecipeSearchComponent
   ],
   imports: [
     BrowserModule
