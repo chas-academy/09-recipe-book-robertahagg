@@ -1,0 +1,17 @@
+.searchFilter {
+    background-color: white;
+    display: inline-block;
+    margin-top: 20px;
+    padding-right: 60px;
+    padding-left: 60px;
+    opacity: 0.8;
+}
+
+.searchContainer {
+    background-color: white;
+    display: inline-block;
+    margin-top: 20px;
+    padding-right: 60px;
+    padding-left: 60px;
+    opacity: 0.8;
+}

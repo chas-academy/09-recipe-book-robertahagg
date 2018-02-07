@@ -1,3 +1,35 @@
-<p>
-  recipe-search works!
-</p>
+<div class="search-container">
+    <form action="">
+        <input type="text" placeholder="Find recipes" name="search">
+        <button type="submit">Find</button>
+        <p>Search by types of recipes</p><button type="submit">Advaced search</button>
+    </form>
+</div>
+
+<div class="searchFilter">
+    <div>
+        <p>Types of recipes</p>
+        <input type="radio" name="meals" (click)="breakfast" />Breakfast
+        <input type="radio" name="meals" (click)="lunch" />Lunch
+        <input type="radio" name="meals" (click)="dinner" />Dinner
+        <input type="radio" name="meals" (click)="dessert" />Dessert
+    </div>
+
+    <div>
+        <p>Exclude recipes of allergen:</p>
+        <input type="checkbox" name="allergen" (click)="fish" />Fish
+        <input type="checkbox" name="allergen" (click)="eggs" />Eggs
+        <input type="checkbox" name="allergen" (click)="dairy" />Dairy
+        <input type="checkbox" name="allergen" (click)="wheat" />Wheat
+        <input type="checkbox" name="allergen" (click)="gluten" />Gluten
+        <input type="checkbox" name="allergen" (click)="nuts" />Nuts
+    </div>
+
+    <div>
+        <p>Cooking time</p>
+        <input type="checkbox" name="cooking-time" (click)="15-min" /> Less then 15 min
+        <input type="checkbox" name="cooking-time" (click)="30-min" /> Less then 30 min
+        <input type="checkbox" name="cooking-time" (click)="60-min" /> Less then 60 min
+        <input type="checkbox" name="cooking-time" (click)="over-60-min" /> 60 min +
+    </div>
+</div>
