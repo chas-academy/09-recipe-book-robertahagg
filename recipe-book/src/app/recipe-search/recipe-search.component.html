@@ -1,9 +1,13 @@
 <div class="search-container">
-    <form action="">
-        <input type="text" placeholder="Find recipes" name="search">
-        <button type="submit">Find</button>
-        <p>Search by types of recipes</p><button type="submit">Advaced search</button>
-    </form>
+    <div>
+        <label>Recipes:
+                  <input #recipeSearch />
+                </label>
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button (click)="search(recipeSearch.value); recipeSearch.value=''">
+                  Search
+                </button>
+    </div>
 </div>
 
 <div class="searchFilter">
@@ -33,3 +37,12 @@
         <input type="checkbox" name="cooking-time" (click)="over-60-min" /> 60 min +
     </div>
 </div>
+
+<p>Recipes results</p>
+<ul class="recipe-result">
+    <li *ngFor="let recipe of recipes">
+        <!-- <a routerLink="/detail/{{recipe.id}}"> -->
+        {{recipe.name}}
+        <!-- </a> -->
+    </li>
+</ul>
