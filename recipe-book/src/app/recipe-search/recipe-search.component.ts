@@ -28,4 +28,7 @@ class Recipe {
   constructor(public theName: string) {
     this.name = theName;
   }
+  savedRecipe(recipeID: number) {
+
+  }
 }
