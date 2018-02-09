@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
+import { RecipeSearchService } from './recipe-search/recipe-search.service';
 
 
 
@@ -20,7 +21,7 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [RecipeSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeSearchService } from './recipe-search.service';
+import { Recipe } from './recipe';
 
 @Component({
   selector: 'app-recipe-search',
@@ -8,27 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class RecipeSearchComponent implements OnInit {
   recipes: Recipe[];
 
-  constructor() { }
+  constructor(private recipeSearchService: RecipeSearchService) { }
 
   ngOnInit() {
     this.recipes = [];
   }
 
-  search(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.recipes.push(new Recipe(name));
-  }
-}
+  search(query: string): void {
+    query = query.trim();
+    if (!query) { return; }
 
-class Recipe {
-  id: number;
-  name: string;
-
-  constructor(public theName: string) {
-    this.name = theName;
-  }
-  savedRecipe(recipeID: number) {
-
+    this.recipeSearchService.getRecipes(query);
   }
 }
