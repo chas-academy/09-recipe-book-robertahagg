@@ -20,7 +20,7 @@ export class RecipeSearchService {
         const recipes = [];
 
         res.forEach(item => {
-          recipes.push(new Recipe(item.image));
+          recipes.push(new Recipe(item.image, item.label));
         });
 
         return recipes;
