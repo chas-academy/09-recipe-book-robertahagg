@@ -20,6 +20,8 @@ export class RecipeSearchComponent implements OnInit {
     query = query.trim();
     if (!query) { return; }
 
-    this.recipeSearchService.getRecipes(query);
+    const getRecipesPromise = this.recipeSearchService.getRecipes(query);
+
+    getRecipesPromise.then(resultList => this.recipes = resultList);
   }
 }

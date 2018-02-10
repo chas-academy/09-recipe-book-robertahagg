@@ -8,35 +8,22 @@ export class RecipeSearchService {
 
   getRecipes(query: string) {
 
-    // protocol://domain/path/path/path?queryparamname=queryparamvalue&queryparamname2=queryparamvalue2
+    // Problem with CORS stopped me from using food2forks and Edamans API
     const searchUrl = 'http://food2fork.com/api/search?key=36715c5f7020476465b158a51c1c6304&q=' + query;
+    const searchUrlBackup = 'http://localhost:3000/hits';
 
-    // http://food2fork.com/api/search?key={API_KEY}&q=shredded%20chicken
+    return fetch(searchUrlBackup)
 
-    const obj: RequestInit = {
-      method: 'GET',
-      mode: 'no-cors'
-    };
-
-    return fetch(searchUrl, obj)
-      //  .then(res => console.log(res))
       .then(res => res.json())
       .then(res => {
         console.log(res);
-        const RECIPES = [];
+        const recipes = [];
 
-        //  res.forEach(item => {
-        //   RECIPES.push(new Recipe(
-        //     item.id,
-        //     item.url,
-        //     item.label,
-        //     item.image,
-        //     item.ingredientLines,
-        //     item.healthLabels));
-        // });
+        res.forEach(item => {
+          recipes.push(new Recipe(item.image));
+        });
 
-        // resolve(RECIPES);
-        return RECIPES;
+        return recipes;
       });
   }
 }
