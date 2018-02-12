@@ -1,12 +1,10 @@
 <div class="search-container">
     <div>
         <label>Recipes:
-                  <input #recipeSearch />
+                  <input #recipeSearch value="pizza" />
                 </label>
         <!-- (click) passes input value to add() and then clears the input -->
-        <button (click)="search(recipeSearch.value); recipeSearch.value=''">
-                  Search
-                </button>
+
     </div>
 </div>
 
@@ -36,20 +34,25 @@
         <input type="checkbox" name="cooking-time" (click)="60-min" /> Less then 60 min
         <input type="checkbox" name="cooking-time" (click)="over-60-min" /> 60 min +
     </div>
+
+    <button (click)="search(recipeSearch.value); recipeSearch.value=''">
+        Search
+    </button>
 </div>
+
+
 
 <!-- <p>Recipes results</p>
 <ul class="recipe-result">
     <li *ngFor="let recipe of recipes">
-        <a routerLink="/detail/{{recipe.id}}"> 
-        <img [src]="recipe.hostedMediumUrl">
-        <p>{{recipe.recipeName}}</p>
-        </a> 
+        <a routerLink="/detail/{{recipe.id}}">
+            <img [src]="recipe.hostedMediumUrl">
+            <p>{{recipe.recipeName}}</p>
+        </a>
         <button (click)="SaveRecipe(recipe.id)">Save recipe</button>
     </li>
-
-</ul> -->
-
+</ul>
+ -->
 
 <ul class="grid" *ngIf="recipes else loading">
     <li *ngFor="let recipe of recipes of recipes">
