@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { RecipeSearchService } from './recipe-search/recipe-search.service';
+import { ClarityModule } from 'clarity-angular';
 
 
 
@@ -19,6 +20,7 @@ import { RecipeSearchService } from './recipe-search/recipe-search.service';
     SavedRecipesComponent
   ],
   imports: [
+    ClarityModule,
     BrowserModule
   ],
   providers: [RecipeSearchService],

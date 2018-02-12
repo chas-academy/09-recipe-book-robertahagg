@@ -1,7 +1,7 @@
 
 export class Recipe {
 
-    constructor(public imageUrl: string, public label: string) {
+    constructor(public hostedMediumUrl: string, public recipeName: string) {
 
     }
 }

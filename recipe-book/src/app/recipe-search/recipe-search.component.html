@@ -38,14 +38,37 @@
     </div>
 </div>
 
-<p>Recipes results</p>
+<!-- <p>Recipes results</p>
 <ul class="recipe-result">
     <li *ngFor="let recipe of recipes">
-        <!-- <a routerLink="/detail/{{recipe.id}}"> -->
-        <img [src]="recipe.imageUrl">
-        <p>{{recipe.label}}</p>
-        <!-- </a> -->
+        <a routerLink="/detail/{{recipe.id}}"> 
+        <img [src]="recipe.hostedMediumUrl">
+        <p>{{recipe.recipeName}}</p>
+        </a> 
         <button (click)="SaveRecipe(recipe.id)">Save recipe</button>
     </li>
 
+</ul> -->
+
+
+<ul class="grid" *ngIf="recipes else loading">
+    <li *ngFor="let recipe of recipes of recipes">
+        <div class="card">
+            <div class="card-img">
+                <img [src]="recipe.hostedMediumUrl">
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">{{recipe.recipeName}}</h4>
+                <p class="card-text">
+                </p>
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-icon btn-primary" (click)="SaveRecipe(recipe.id)">
+            <clr-icon shape="add-text"></clr-icon>
+            Add
+          </button>
+            </div>
+        </div>
+    </li>
+    <ng-template #loading>Loading recipes...</ng-template>
 </ul>
