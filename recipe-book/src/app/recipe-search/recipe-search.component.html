@@ -8,36 +8,37 @@
     </div>
 </div>
 
-<div class="searchFilter">
-    <div>
-        <p>Types of recipes</p>
-        <input type="radio" name="meals" (click)="breakfast" />Breakfast
-        <input type="radio" name="meals" (click)="lunch" />Lunch
-        <input type="radio" name="meals" (click)="dinner" />Dinner
-        <input type="radio" name="meals" (click)="dessert" />Dessert
-    </div>
 
-    <div>
-        <p>Exclude recipes of allergen:</p>
-        <input type="checkbox" name="allergen" (click)="fish" />Fish
-        <input type="checkbox" name="allergen" (click)="eggs" />Eggs
-        <input type="checkbox" name="allergen" (click)="dairy" />Dairy
-        <input type="checkbox" name="allergen" (click)="wheat" />Wheat
-        <input type="checkbox" name="allergen" (click)="gluten" />Gluten
-        <input type="checkbox" name="allergen" (click)="nuts" />Nuts
-    </div>
+<nav class="subnav">
+    <p>Types of recipes</p>
+    <ul class="nav">
+        <li *ngFor="let filter of mealTypeFilters" class="nav-item">
+            <input type="checkbox" name="meals" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name+ ' '+filter.enabled}}
+        </li>
+    </ul>
+</nav>
 
-    <div>
-        <p>Cooking time</p>
-        <input type="checkbox" name="cooking-time" (click)="15-min" /> Less then 15 min
-        <input type="checkbox" name="cooking-time" (click)="30-min" /> Less then 30 min
-        <input type="checkbox" name="cooking-time" (click)="60-min" /> Less then 60 min
-        <input type="checkbox" name="cooking-time" (click)="over-60-min" /> 60 min +
-    </div>
+<nav class="subnav">
+    <p>Exclude recipes of allergen:</p>
+    <ul class="nav">
+        <li *ngFor="let filter of AllergenTypeFilters" class="nav-item">
+            <input type="checkbox" name="allergen" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name+ ' '+filter.enabled}}
+        </li>
+    </ul>
+</nav>
 
+<nav class="subnav">
+    <p>Cooking time</p>
+    <ul class="nav">
+        <li *ngFor="let filter of CookingTypeFilters" class="nav-item">
+            <input type="checkbox" name="cooking-time" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name+ ' '+filter.enabled}}
+        </li>
+    </ul>
+</nav>
+<div>
     <button (click)="search(recipeSearch.value); recipeSearch.value=''">
-        Search
-    </button>
+            Search
+        </button>
 </div>
 
 
@@ -68,7 +69,7 @@
             <div class="card-footer">
                 <button type="button" class="btn btn-icon btn-primary" (click)="SaveRecipe(recipe.id)">
             <clr-icon shape="add-text"></clr-icon>
-            Add
+            Save recipe
           </button>
             </div>
         </div>
