@@ -1,7 +1,7 @@
 <div class="search-container">
-    <div>
+    <div class="field">
         <label>Recipes:
-                  <input #recipeSearch value="pizza" />
+                  <input class="input is-medium" #recipeSearch value="pizza" />
                 </label>
         <!-- (click) passes input value to add() and then clears the input -->
 
@@ -10,7 +10,7 @@
 
 
 <nav class="subnav">
-    <p>Types of recipes</p>
+    <h5 class="subtitle is-5">Types of recipes</h5>
     <ul class="nav">
         <li *ngFor="let filter of mealTypeFilters" class="nav-item">
             <input type="checkbox" name="meals" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name}}
@@ -19,7 +19,7 @@
 </nav>
 
 <nav class="subnav">
-    <p>Exclude recipes of allergen:</p>
+    <h5 class="subtitle is-5">Exclude recipes of allergen:</h5>
     <ul class="nav">
         <li *ngFor="let filter of allergenTypeFilters" class="nav-item">
             <input type="checkbox" name="allergen" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name}}
@@ -28,15 +28,15 @@
 </nav>
 
 <nav class="subnav">
-    <p>Cooking time</p>
+    <h5 class="subtitle is-5">Cooking time</h5>
     <ul class="nav">
         <li *ngFor="let filter of cookingTypeFilters" class="nav-item">
             <input type="checkbox" name="cooking-time" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name}}
         </li>
     </ul>
 </nav>
-<div>
-    <button (click)="search(recipeSearch.value); recipeSearch.value=''">
+<div class="control">
+    <button class="button is-primary" (click)="search(recipeSearch.value); recipeSearch.value=''">
             Search
         </button>
 </div>
@@ -76,7 +76,3 @@
     </li>
     <ng-template #loading>Loading recipes...</ng-template>
 </ul>
-
-<div class="control">
-    <button class="button is-primary">Submit</button>
-</div>
