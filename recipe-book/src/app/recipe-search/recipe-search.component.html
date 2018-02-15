@@ -13,7 +13,7 @@
     <p>Types of recipes</p>
     <ul class="nav">
         <li *ngFor="let filter of mealTypeFilters" class="nav-item">
-            <input type="checkbox" name="meals" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name+ ' '+filter.enabled}}
+            <input type="checkbox" name="meals" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name}}
         </li>
     </ul>
 </nav>
@@ -21,8 +21,8 @@
 <nav class="subnav">
     <p>Exclude recipes of allergen:</p>
     <ul class="nav">
-        <li *ngFor="let filter of AllergenTypeFilters" class="nav-item">
-            <input type="checkbox" name="allergen" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name+ ' '+filter.enabled}}
+        <li *ngFor="let filter of allergenTypeFilters" class="nav-item">
+            <input type="checkbox" name="allergen" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name}}
         </li>
     </ul>
 </nav>
@@ -30,8 +30,8 @@
 <nav class="subnav">
     <p>Cooking time</p>
     <ul class="nav">
-        <li *ngFor="let filter of CookingTypeFilters" class="nav-item">
-            <input type="checkbox" name="cooking-time" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name+ ' '+filter.enabled}}
+        <li *ngFor="let filter of cookingTypeFilters" class="nav-item">
+            <input type="checkbox" name="cooking-time" [checked]="filter.enabled" (change)="filter.enabled = !filter.enabled" />{{filter.name}}
         </li>
     </ul>
 </nav>

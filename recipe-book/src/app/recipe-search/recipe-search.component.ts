@@ -13,24 +13,23 @@ export class RecipeSearchComponent implements OnInit {
   recipes: Recipe[];
 
   mealTypeFilters: Filter[] = [
-    new Filter('Breakfast'),
-    new Filter('Lunch'),
-    new Filter('Dinner'),
-    new Filter('Dessert')];
+    new Filter('Breakfast and Brunch', 'allowedCourse[]=course^course-Breakfast and Brunch'),
+    new Filter('Lunch', 'allowedCourse[]=course^course-Lunch'),
+    new Filter('Main Dishes', 'allowedCourse[]=course^course-Main Dishes'),
+    new Filter('Desserts', 'allowedCourse[]=course^course-Desserts')];
 
-  AllergenTypeFilters: Filter[] = [
-    new Filter('Fish'),
-    new Filter('Egg'),
-    new Filter('Dairy'),
-    new Filter('Wheat'),
-    new Filter('Gluten'),
-    new Filter('Nuts')];
+  allergenTypeFilters: Filter[] = [
+    new Filter('Fish', 'allowedAllergy[]=398^Seafood-Free'),
+    new Filter('Egg', 'allowedAllergy[]=397^Egg-Free'),
+    new Filter('Dairy', 'allowedAllergy[]=396^Dairy-Free'),
+    new Filter('Wheat', 'allowedAllergy[]=392^Wheat-Free'),
+    new Filter('Gluten', 'allowedAllergy[]=393^Gluten-Free'),
+    new Filter('Nuts', 'allowedAllergy[]=395^Tree Nut-Free')];
 
-  CookingTypeFilters: Filter[] = [
-    new Filter('15-min'),
-    new Filter('30-min'),
-    new Filter('60-min'),
-    new Filter('over-60-min')];
+  cookingTypeFilters: Filter[] = [
+    new Filter('15-min', 'maxTotalTimeInSeconds=900'),
+    new Filter('30-min', 'maxTotalTimeInSeconds=1800'),
+    new Filter('60-min', 'maxTotalTimeInSeconds=3600')];
 
   constructor(private recipeSearchService: RecipeSearchService) { }
 
@@ -42,7 +41,8 @@ export class RecipeSearchComponent implements OnInit {
     query = query.trim();
     if (!query) { return; }
 
-    const getRecipesPromise = this.recipeSearchService.getRecipes(query);
+    const getRecipesPromise = this.recipeSearchService.getRecipes(
+      query, this.mealTypeFilters, this.allergenTypeFilters, this.cookingTypeFilters);
 
     getRecipesPromise.then(resultList => this.recipes = resultList);
   }
