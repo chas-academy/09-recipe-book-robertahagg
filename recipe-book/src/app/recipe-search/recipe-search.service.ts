@@ -48,22 +48,7 @@ export class RecipeSearchService {
       });
   }
 
-  getRecipe(recipeId: number | string) {
-    return fetch(`http://api.yummly.com/v1/api/recipe/${recipeId}?${CREDENTIAL_PARAMETERS}`)
-      .then(res => res.json())
-      .then(res => {
-        const recipe = new Recipe(
-          res.id,
-          res.name,
-          res.hostedLargeUrl,
-          res.sourceRecipeUrl,
-          res.ingredients,
-          res.totalTime
-        );
 
-        return recipe;
-      });
-  }
 
 }
 

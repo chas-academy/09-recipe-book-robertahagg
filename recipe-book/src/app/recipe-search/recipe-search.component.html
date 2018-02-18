@@ -43,23 +43,13 @@
 
 
 
-<!-- <p>Recipes results</p>
-<ul class="recipe-result">
-    <li *ngFor="let recipe of recipes">
-        <a routerLink="/detail/{{recipe.id}}">
-            <img [src]="recipe.hostedMediumUrl">
-            <p>{{recipe.recipeName}}</p>
-        </a>
-        <button (click)="SaveRecipe(recipe.id)">Save recipe</button>
-    </li>
-</ul>
- -->
 
 <ul class="grid" *ngIf="recipes else loading">
     <li *ngFor="let recipe of recipes of recipes">
-        <div class="card">
+
+        <div class="card" routerLink="/recipe/{{recipe.id}}">
             <div class="card-img">
-                <img [src]="recipe.hostedMediumUrl">
+                <img [src]="recipe.imageUrl">
             </div>
             <div class="card-block">
                 <h4 class="card-title">{{recipe.recipeName}}</h4>
