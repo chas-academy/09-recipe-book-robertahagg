@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe-search/recipe';
 import { ActivatedRoute } from '@angular/router';
+import { SavedRecipesService } from '../saved-recipes/saved-recipes.service';
 
-const CREDENTIAL_PARAMETERS = '_app_id=f6f7dfda&_app_key=7169fc8254750eb59d52c7603b5131ab';
+const CREDENTIAL_PARAMETERS =
+  '_app_id=f6f7dfda&_app_key=7169fc8254750eb59d52c7603b5131ab';
 
 @Component({
   selector: 'app-single-recipe',
@@ -10,9 +12,11 @@ const CREDENTIAL_PARAMETERS = '_app_id=f6f7dfda&_app_key=7169fc8254750eb59d52c76
   styleUrls: ['./single-recipe.component.css']
 })
 export class SingleRecipeComponent implements OnInit {
-
   recipe: Recipe;
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private recipeSearchService: SavedRecipesService
+  ) {}
 
   ngOnInit() {
     this.loadRecipe();
@@ -21,16 +25,18 @@ export class SingleRecipeComponent implements OnInit {
   private loadRecipe(): void {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.getRecipe(id).then(result => {
+    this.getRecipe(id).then((result) => {
       this.recipe = result;
       console.log(result);
     });
   }
 
   private getRecipe(recipeId: number | string) {
-    return fetch(`http://api.yummly.com/v1/api/recipe/${recipeId}?${CREDENTIAL_PARAMETERS}`)
-      .then(res => res.json())
-      .then(res => {
+    return fetch(
+      `http://api.yummly.com/v1/api/recipe/${recipeId}?${CREDENTIAL_PARAMETERS}`
+    )
+      .then((res) => res.json())
+      .then((res) => {
         console.log(res);
 
         const recipe = new Recipe(
@@ -44,5 +50,9 @@ export class SingleRecipeComponent implements OnInit {
 
         return recipe;
       });
+  }
+
+  private saveRecipe(name: string) {
+    this.recipeSearchService.addRecipeToList(name);
   }
 }

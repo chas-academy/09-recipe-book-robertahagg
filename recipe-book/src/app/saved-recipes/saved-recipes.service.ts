@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SavedRecipesService {
+  recipes: String[];
 
-  constructor() { }
+  constructor() {
+    this.recipes = ['Äpple', 'Squash'];
+  }
 
   getLists() {
-
+    return this.recipes;
   }
 
-
-  addRecipeToList(listId: number, recipeId: number) {
-
+  addRecipeToList(name: String) {
+    this.recipes.push(name);
   }
-
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { SavedRecipesService } from './saved-recipes.service';
+import { Recipe } from '../recipe-search/recipe';
+import { SavedRecipesService } from './saved-recipes.service';
 
 @Component({
   selector: 'app-saved-recipes',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./saved-recipes.component.css']
 })
 export class SavedRecipesComponent implements OnInit {
+  recipes: String[];
 
-  constructor() { }
+  constructor(private recipeSearchService: SavedRecipesService) {}
 
   ngOnInit() {
+    this.recipes = this.recipeSearchService.getLists();
   }
 }

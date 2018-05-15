@@ -6,7 +6,8 @@
 </p>
 
 <ul class="savedListItems">
-    <li *ngFor="let recipe of recipes$ | async" [class.selected]="recipe.id ===selectedId">
-        <span class="badge">{{recipe.id}}</span> {{recipe.recipeName}}
+    <li *ngFor="let recipe of recipes">
+        <!-- <span class="badge">{{recipe.id}}</span> {{recipe.recipeName}} -->
+        {{recipe}}
     </li>
 </ul>
