@@ -47,7 +47,7 @@
     <li *ngFor="let recipe of recipes of recipes">
 
         <div class="card" routerLink="/recipe/{{recipe.id}}">
-            <div class="card-img">
+            <div class="image is-5by3">
                 <img [src]="recipe.imageUrl">
             </div>
             <div class="card-block">

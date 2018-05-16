@@ -22,6 +22,16 @@
     opacity: 0.8;
 }
 
+.card {
+    margin: auto;
+    border-style: solid;
+    display: block;
+    padding: 20px;
+    width: 25%;
+    background: none !important;
+    color: white;
+}
+
 h5 {
     padding-top: 20px;
     color: white;
