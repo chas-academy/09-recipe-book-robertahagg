@@ -13,9 +13,10 @@ const CREDENTIAL_PARAMETERS =
 })
 export class SingleRecipeComponent implements OnInit {
   recipe: Recipe;
+
   constructor(
     private route: ActivatedRoute,
-    private recipeSearchService: SavedRecipesService
+    private savedRecipesService: SavedRecipesService
   ) {}
 
   ngOnInit() {
@@ -52,7 +53,7 @@ export class SingleRecipeComponent implements OnInit {
       });
   }
 
-  private saveRecipe(name: string) {
-    this.recipeSearchService.addRecipeToList(name);
+  private saveRecipe(id: string, name: string) {
+    this.savedRecipesService.addRecipeToList(id, name);
   }
 }

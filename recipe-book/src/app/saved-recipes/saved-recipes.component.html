@@ -5,8 +5,8 @@
 
 <ul class="savedListItems">
     <li *ngFor="let recipe of recipes">
-        <!-- <span class="badge">{{recipe.id}}</span> {{recipe.recipeName}} -->
-        {{recipe}}
+        <span class="badge" routerLink="/recipe/{{recipe.id}}">{{recipe.recipeName}}</span>
+
         <button ng-click="remove">X Remove</button>
     </li>
 </ul>

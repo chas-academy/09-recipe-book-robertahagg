@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe-search/recipe';
 import { SavedRecipesService } from './saved-recipes.service';
+import { SavedRecipe } from './saved-recipe';
 
 @Component({
   selector: 'app-saved-recipes',
@@ -8,11 +9,18 @@ import { SavedRecipesService } from './saved-recipes.service';
   styleUrls: ['./saved-recipes.component.css']
 })
 export class SavedRecipesComponent implements OnInit {
-  recipes: String[];
+  recipes: SavedRecipe[];
 
-  constructor(private recipeSearchService: SavedRecipesService) {}
+  savedRecipesService: SavedRecipesService;
+
+  constructor(savedRecipesService: SavedRecipesService) {
+    this.savedRecipesService = savedRecipesService;
+  }
+
+  // Motsvarar ovanstående
+  // constructor(private savedRecipesService: SavedRecipesService) {}
 
   ngOnInit() {
-    this.recipes = this.recipeSearchService.getLists();
+    this.recipes = this.savedRecipesService.getLists();
   }
 }
