@@ -27,7 +27,7 @@
     border-style: solid;
     display: block;
     padding: 20px;
-    width: 25%;
+    width: 15%;
     background: none !important;
     color: white;
 }
@@ -40,4 +40,8 @@ h5 {
 .subtitle {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 30px;
+}
+
+.inputCheckbox {
+    margin-right: 8px;
 }
