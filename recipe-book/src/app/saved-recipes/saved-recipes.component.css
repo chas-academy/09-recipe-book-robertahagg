@@ -1,7 +1,9 @@
 .savedListItems {
-    display: block;
+    display: inline-block;
     top: 70px;
     right: 60px;
+    border-style: solid;
+    padding: 10px;
 }
 
 ul {

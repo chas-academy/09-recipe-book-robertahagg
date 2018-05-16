@@ -1,16 +1,19 @@
-<h1>{{recipe.recipeName | uppercase}}</h1>
-<ul class="recipe-container" *ngIf="recipe">
-    <a routerLink="/recipe/{{recipe.id}}">
-        <img [src]="recipe.imageUrl">
-    </a>
+<div class="recipe-container">
+    <h1>{{recipe.recipeName | uppercase}}</h1>
+    <ul *ngIf="recipe">
+        <a routerLink="/recipe/{{recipe.id}}">
+            <img [src]="recipe.imageUrl">
+        </a>
 
-</ul>
-<div class="recipe-ingredients" *ngIf="recipe">
-    <h2>Ingredients</h2>
-    <ul class="list">
-        <li *ngFor="let ingredient of recipe.ingredients">
-            {{ingredient}}
-        </li>
     </ul>
+    <div class="recipe-ingredients" *ngIf="recipe">
+        <h2>Ingredients</h2>
+        <ul class="list">
+            <li *ngFor="let ingredient of recipe.ingredients">
+                {{ingredient}}
+            </li>
+        </ul>
+    </div>
+    <button class="button is-black" (click)="saveRecipe(recipe.recipeName)">Save recipe</button>
+
 </div>
-<button (click)="saveRecipe(recipe.recipeName)">Save recipe</button>
