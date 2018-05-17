@@ -56,4 +56,7 @@ export class SingleRecipeComponent implements OnInit {
   private saveRecipe(id: string, name: string) {
     this.savedRecipesService.addRecipeToList(id, name);
   }
+  private deleteRecipe(index) {
+    this.savedRecipesService.deleteRecipeFromList(index);
+  }
 }

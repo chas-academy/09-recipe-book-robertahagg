@@ -7,6 +7,6 @@
     <li *ngFor="let recipe of recipes">
         <span class="badge" routerLink="/recipe/{{recipe.id}}">{{recipe.recipeName}}</span>
 
-        <button ng-click="remove">X Remove</button>
+        <button (click)="savedRecipesService.deleteRecipeFromList(recipe.id)">x </button>
     </li>
 </ul>
