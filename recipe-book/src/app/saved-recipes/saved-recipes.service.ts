@@ -6,10 +6,7 @@ export class SavedRecipesService {
   recipes: SavedRecipe[];
 
   constructor() {
-    this.recipes = [
-      new SavedRecipe('apple123', 'Äpple'),
-      new SavedRecipe('pear', 'Päron')
-    ];
+    this.recipes = [];
   }
 
   getLists() {
