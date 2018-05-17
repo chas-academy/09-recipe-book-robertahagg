@@ -1,12 +1,19 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
+<nav class="level">
+    <p class="level-item has-text-centered">
+        <a routerLink="/">
+            <img src="assets/images/Foodie.png" alt="" style="height: 150px;">
+        </a>
+    </p>
+</nav>
 
-<div style="text-align:left">
-    <app-saved-recipes></app-saved-recipes>
-</div>
+<div class="main-background-img">
+    <div style="text-align:left">
+        <app-saved-recipes></app-saved-recipes>
+    </div>
 
-<div style="text-align:center">
-
-    <app-recipe-search></app-recipe-search>
-    <router-outlet></router-outlet>
+    <div style="text-align:center">
+        <router-outlet></router-outlet>
+    </div>
 </div>

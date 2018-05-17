@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe-search/recipe';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { SavedRecipesService } from '../saved-recipes/saved-recipes.service';
 
 const CREDENTIAL_PARAMETERS =
@@ -16,8 +16,15 @@ export class SingleRecipeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private savedRecipesService: SavedRecipesService
-  ) {}
+  ) {
+    router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        this.loadRecipe();
+      }
+    });
+  }
 
   ngOnInit() {
     this.loadRecipe();

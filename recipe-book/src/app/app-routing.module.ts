@@ -5,7 +5,7 @@ import { SingleRecipeComponent } from './single-recipe/single-recipe.component';
 import { RecipeSearchComponent } from './recipe-search/recipe-search.component';
 
 const routes: Routes = [
-  { path: 'recipes', component: RecipeSearchComponent },
+  { path: '', component: RecipeSearchComponent },
   { path: 'recipe/:id', component: SingleRecipeComponent }
 ];
 
